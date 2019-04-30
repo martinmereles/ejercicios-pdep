@@ -41,10 +41,6 @@ amigos = [marcos,rodri]
 como amigo. También modelar a Marcos, un cliente que tiene 40 puntos de
 resistencia, y considera a Rodri como su único amigo.
 -}
-{-
-3) Representar con la abstracción que crea conveniente a la Jarra Loca, el Grog
-XD y el Klusener.
-4) Definir el concepto de rescatarse. -}
 
 rodri = Cliente {
 nombre = "Rodri",
@@ -57,22 +53,29 @@ resistencia = 40,
 amigos = [rodri]
 }
 
+{-
+3) Representar con la abstracción que crea conveniente a la Jarra Loca, el Grog
+XD y el Klusener.
+-}
 
 efectoJarraloca:: Cliente -> Int
 efectoJarraloca cliente = (resistencia cliente ) - 10
-sinResistencia :: Int -> Bool
-sinResistencia resistencia = resistencia ==0
-efectoGrogXd :: Cliente ->Bool
-efectoGrogXd cliente = (sinResistencia cliente)
-{-
-grogXd = Trago {
-nombreTrago = "grog xd",
-efecto = (/resistencia)
-}
 
-klusenerHuevo = Trago {
-nombreTrago = "Huevo",
-efecto = length "Huevo"
-}
--}
---hola mundo
+efectoGrogXd :: Cliente ->Int
+efectoGrogXd cliente = (resistencia cliente) - (resistencia cliente)
+
+efectoKlusterner :: String -> Cliente -> Int
+efectoKlusterner nombre cliente = (resistencia cliente) - (length nombre) 
+
+{-
+efectoJarraloca:: Int -> Int
+efectoJarraloca resistencia = (resistencia - 10)
+
+efectoGrogXd :: Int ->Int
+efectoGrogXd resistencia =(resistencia - resistencia)
+
+ 4) Definir el concepto de rescatarse.-}
+
+rescatarse :: Int -> Int
+rescatarse  horas | (horas > 3) = 200 
+                  | otherwise = 100
